@@ -1,0 +1,241 @@
+\hypertarget{class_connector}{}\doxysection{Connector Class Reference}
+\label{class_connector}\index{Connector@{Connector}}
+
+
+{\ttfamily \#include $<$connector.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_connector_aa42f91889dd38807e4fb8bdfaa7eb5d7}{Connector}} (M\+Y\+S\+QL $\ast$con=nullptr)
+\item 
+\mbox{\hyperlink{class_connector_a10facd3823384512a97eaee1520fb42f}{Connector}} (const \mbox{\hyperlink{class_connector}{Connector}} \&con)
+\item 
+\mbox{\hyperlink{class_connector}{Connector}} \& \mbox{\hyperlink{class_connector_a1479100e992389ac083c29cbada283c5}{operator=}} (const \mbox{\hyperlink{class_connector}{Connector}} \&rhs)
+\item 
+bool \mbox{\hyperlink{class_connector_a86c508474bff3022ad519ff513f0cba1}{connect}} (const char $\ast$host, const char $\ast$user, const char $\ast$pass, const char $\ast$db, const unsigned \&port, const char $\ast$uport, const unsigned long \&flags)
+\item 
+bool \mbox{\hyperlink{class_connector_a460549bf27423cfca87fd758f5885028}{query}} (const char $\ast$query)
+\item 
+{\footnotesize template$<$typename... Args$>$ }\\bool \mbox{\hyperlink{class_connector_a42c0c1f8a6b6d9065bff43d2d86af3d2}{query}} (const char $\ast$q, const Args $\ast$... args)
+\item 
+bool \mbox{\hyperlink{class_connector_ab240aee31df586e69969f453cc2b6db3}{is\+Definition\+Statement}} () const
+\item 
+bool \mbox{\hyperlink{class_connector_a7d91a06437b8648fe026d6caf3e98f79}{is\+Library\+Initialized}} () const
+\item 
+bool \mbox{\hyperlink{class_connector_a299d8bf5b16d1072eff9c06a17863fc3}{M\+Y\+S\+Q\+L\+\_\+lib\+\_\+failed}} () const
+\item 
+bool \mbox{\hyperlink{class_connector_a09ac8a9a7fa897b024184e402054cb4b}{is\+Connected}} () const
+\item 
+string \mbox{\hyperlink{class_connector_a33a63862fb68226d24a0b28f79073675}{get\+Error}} () const
+\item 
+my\+\_\+ulonglong \mbox{\hyperlink{class_connector_acfa0c433147b2ae221e9e85d4f64b705}{get\+Num\+Affected\+Rows}} () const
+\item 
+int \mbox{\hyperlink{class_connector_ac7bf3e6ed938d3f0d50488046e46803f}{get\+Num\+Fields}} () const
+\item 
+vector$<$ vector$<$ any $>$ $>$ \mbox{\hyperlink{class_connector_a644196a3f347ce514b9bdb48e828cff3}{get\+Data}} () const
+\item 
+vector$<$ string $>$ \mbox{\hyperlink{class_connector_a4a1f2f9a159985631c98e5d433d0bd71}{get\+Field\+Names}} () const
+\item 
+M\+Y\+S\+QL $\ast$ \mbox{\hyperlink{class_connector_ac1add085b96fc45b540ad78d71f9c1f0}{get\+M\+Y\+S\+Q\+L\+\_\+\+Ptr}} () const
+\item 
+M\+Y\+S\+Q\+L\+\_\+\+R\+ES $\ast$ \mbox{\hyperlink{class_connector_a0f5a9836c5e2cb291866b834dc6a5dbb}{get\+M\+Y\+S\+Q\+L\+\_\+\+R\+E\+S\+\_\+\+Ptr}} () const
+\item 
+M\+Y\+S\+Q\+L\+\_\+\+F\+I\+E\+LD $\ast$ \mbox{\hyperlink{class_connector_aed4af143f3e1b83b8cf6f16375a34464}{get\+M\+Y\+S\+Q\+L\+\_\+\+F\+I\+E\+L\+D\+\_\+\+Ptr}} () const
+\item 
+M\+Y\+S\+Q\+L\+\_\+\+R\+OW \mbox{\hyperlink{class_connector_acadd7a6658ad4661ba830d4681612587}{get\+M\+Y\+S\+Q\+L\+\_\+\+R\+O\+W\+\_\+\+Struct}} () const
+\item 
+\mbox{\hyperlink{class_connector_a0f084edc18ed6e3a25314689d5bf9244}{$\sim$\+Connector}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_connector_aa42f91889dd38807e4fb8bdfaa7eb5d7}\label{class_connector_aa42f91889dd38807e4fb8bdfaa7eb5d7}} 
+\index{Connector@{Connector}!Connector@{Connector}}
+\index{Connector@{Connector}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{Connector()}{Connector()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Connector\+::\+Connector (\begin{DoxyParamCaption}\item[{M\+Y\+S\+QL $\ast$}]{con = {\ttfamily nullptr} }\end{DoxyParamCaption})}
+
+Basic Constructor 
+\begin{DoxyParams}{Parameters}
+{\em con} & passes in another main M\+Y\+S\+QL C Structure pointer that can be used for initialization. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_connector_a10facd3823384512a97eaee1520fb42f}\label{class_connector_a10facd3823384512a97eaee1520fb42f}} 
+\index{Connector@{Connector}!Connector@{Connector}}
+\index{Connector@{Connector}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{Connector()}{Connector()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Connector\+::\+Connector (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_connector}{Connector}} \&}]{con }\end{DoxyParamCaption})}
+
+Copy Constructor 
+\begin{DoxyParams}{Parameters}
+{\em con} & \mbox{\hyperlink{class_connector}{Connector}} to be copied. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_connector_a0f084edc18ed6e3a25314689d5bf9244}\label{class_connector_a0f084edc18ed6e3a25314689d5bf9244}} 
+\index{Connector@{Connector}!````~Connector@{$\sim$Connector}}
+\index{````~Connector@{$\sim$Connector}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{$\sim$Connector()}{~Connector()}}
+{\footnotesize\ttfamily Connector\+::$\sim$\+Connector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Basic Destructor 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_connector_a86c508474bff3022ad519ff513f0cba1}\label{class_connector_a86c508474bff3022ad519ff513f0cba1}} 
+\index{Connector@{Connector}!connect@{connect}}
+\index{connect@{connect}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{connect()}{connect()}}
+{\footnotesize\ttfamily bool Connector\+::connect (\begin{DoxyParamCaption}\item[{const char $\ast$}]{host,  }\item[{const char $\ast$}]{user,  }\item[{const char $\ast$}]{pass,  }\item[{const char $\ast$}]{db,  }\item[{const unsigned \&}]{port,  }\item[{const char $\ast$}]{unix\+\_\+port,  }\item[{const unsigned long \&}]{client\+\_\+flags }\end{DoxyParamCaption})}
+
+Used to connect to a target database 
+\begin{DoxyParams}{Parameters}
+{\em host} & stores host name to target mysql server. \\
+\hline
+{\em user} & stores mysql user name. \\
+\hline
+{\em pass} & stores mysql password. \\
+\hline
+{\em db} & stores target mysql database/schema. \\
+\hline
+{\em port} & stores port number to target mysql server that mysql runs on. \\
+\hline
+{\em unix\+\_\+port} & stores the unix\+\_\+port that an be used to connect to mysql on target server. \\
+\hline
+{\em client\+\_\+flags} & stores flag information passed to main M\+Y\+S\+QL C Structure to enable/disable features. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If \mbox{\hyperlink{class_connector}{Connector}} has successfully connected or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_connector_a644196a3f347ce514b9bdb48e828cff3}\label{class_connector_a644196a3f347ce514b9bdb48e828cff3}} 
+\index{Connector@{Connector}!getData@{getData}}
+\index{getData@{getData}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getData()}{getData()}}
+{\footnotesize\ttfamily vector$<$vector$<$any$>$ $>$ Connector\+::get\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a33a63862fb68226d24a0b28f79073675}\label{class_connector_a33a63862fb68226d24a0b28f79073675}} 
+\index{Connector@{Connector}!getError@{getError}}
+\index{getError@{getError}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getError()}{getError()}}
+{\footnotesize\ttfamily string Connector\+::get\+Error (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a4a1f2f9a159985631c98e5d433d0bd71}\label{class_connector_a4a1f2f9a159985631c98e5d433d0bd71}} 
+\index{Connector@{Connector}!getFieldNames@{getFieldNames}}
+\index{getFieldNames@{getFieldNames}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getFieldNames()}{getFieldNames()}}
+{\footnotesize\ttfamily vector$<$string$>$ Connector\+::get\+Field\+Names (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_aed4af143f3e1b83b8cf6f16375a34464}\label{class_connector_aed4af143f3e1b83b8cf6f16375a34464}} 
+\index{Connector@{Connector}!getMYSQL\_FIELD\_Ptr@{getMYSQL\_FIELD\_Ptr}}
+\index{getMYSQL\_FIELD\_Ptr@{getMYSQL\_FIELD\_Ptr}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getMYSQL\_FIELD\_Ptr()}{getMYSQL\_FIELD\_Ptr()}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+F\+I\+E\+LD$\ast$ Connector\+::get\+M\+Y\+S\+Q\+L\+\_\+\+F\+I\+E\+L\+D\+\_\+\+Ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_ac1add085b96fc45b540ad78d71f9c1f0}\label{class_connector_ac1add085b96fc45b540ad78d71f9c1f0}} 
+\index{Connector@{Connector}!getMYSQL\_Ptr@{getMYSQL\_Ptr}}
+\index{getMYSQL\_Ptr@{getMYSQL\_Ptr}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getMYSQL\_Ptr()}{getMYSQL\_Ptr()}}
+{\footnotesize\ttfamily M\+Y\+S\+QL$\ast$ Connector\+::get\+M\+Y\+S\+Q\+L\+\_\+\+Ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a0f5a9836c5e2cb291866b834dc6a5dbb}\label{class_connector_a0f5a9836c5e2cb291866b834dc6a5dbb}} 
+\index{Connector@{Connector}!getMYSQL\_RES\_Ptr@{getMYSQL\_RES\_Ptr}}
+\index{getMYSQL\_RES\_Ptr@{getMYSQL\_RES\_Ptr}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getMYSQL\_RES\_Ptr()}{getMYSQL\_RES\_Ptr()}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+R\+ES$\ast$ Connector\+::get\+M\+Y\+S\+Q\+L\+\_\+\+R\+E\+S\+\_\+\+Ptr (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_acadd7a6658ad4661ba830d4681612587}\label{class_connector_acadd7a6658ad4661ba830d4681612587}} 
+\index{Connector@{Connector}!getMYSQL\_ROW\_Struct@{getMYSQL\_ROW\_Struct}}
+\index{getMYSQL\_ROW\_Struct@{getMYSQL\_ROW\_Struct}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getMYSQL\_ROW\_Struct()}{getMYSQL\_ROW\_Struct()}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+R\+OW Connector\+::get\+M\+Y\+S\+Q\+L\+\_\+\+R\+O\+W\+\_\+\+Struct (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_acfa0c433147b2ae221e9e85d4f64b705}\label{class_connector_acfa0c433147b2ae221e9e85d4f64b705}} 
+\index{Connector@{Connector}!getNumAffectedRows@{getNumAffectedRows}}
+\index{getNumAffectedRows@{getNumAffectedRows}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getNumAffectedRows()}{getNumAffectedRows()}}
+{\footnotesize\ttfamily my\+\_\+ulonglong Connector\+::get\+Num\+Affected\+Rows (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_ac7bf3e6ed938d3f0d50488046e46803f}\label{class_connector_ac7bf3e6ed938d3f0d50488046e46803f}} 
+\index{Connector@{Connector}!getNumFields@{getNumFields}}
+\index{getNumFields@{getNumFields}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{getNumFields()}{getNumFields()}}
+{\footnotesize\ttfamily int Connector\+::get\+Num\+Fields (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a09ac8a9a7fa897b024184e402054cb4b}\label{class_connector_a09ac8a9a7fa897b024184e402054cb4b}} 
+\index{Connector@{Connector}!isConnected@{isConnected}}
+\index{isConnected@{isConnected}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{isConnected()}{isConnected()}}
+{\footnotesize\ttfamily bool Connector\+::is\+Connected (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_ab240aee31df586e69969f453cc2b6db3}\label{class_connector_ab240aee31df586e69969f453cc2b6db3}} 
+\index{Connector@{Connector}!isDefinitionStatement@{isDefinitionStatement}}
+\index{isDefinitionStatement@{isDefinitionStatement}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{isDefinitionStatement()}{isDefinitionStatement()}}
+{\footnotesize\ttfamily bool Connector\+::is\+Definition\+Statement (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a7d91a06437b8648fe026d6caf3e98f79}\label{class_connector_a7d91a06437b8648fe026d6caf3e98f79}} 
+\index{Connector@{Connector}!isLibraryInitialized@{isLibraryInitialized}}
+\index{isLibraryInitialized@{isLibraryInitialized}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{isLibraryInitialized()}{isLibraryInitialized()}}
+{\footnotesize\ttfamily bool Connector\+::is\+Library\+Initialized (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a299d8bf5b16d1072eff9c06a17863fc3}\label{class_connector_a299d8bf5b16d1072eff9c06a17863fc3}} 
+\index{Connector@{Connector}!MYSQL\_lib\_failed@{MYSQL\_lib\_failed}}
+\index{MYSQL\_lib\_failed@{MYSQL\_lib\_failed}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{MYSQL\_lib\_failed()}{MYSQL\_lib\_failed()}}
+{\footnotesize\ttfamily bool Connector\+::\+M\+Y\+S\+Q\+L\+\_\+lib\+\_\+failed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{class_connector_a1479100e992389ac083c29cbada283c5}\label{class_connector_a1479100e992389ac083c29cbada283c5}} 
+\index{Connector@{Connector}!operator=@{operator=}}
+\index{operator=@{operator=}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{operator=()}{operator=()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_connector}{Connector}} \& Connector\+::operator= (\begin{DoxyParamCaption}\item[{const \mbox{\hyperlink{class_connector}{Connector}} \&}]{rhs }\end{DoxyParamCaption})}
+
+Overloaded assignment operator 
+\begin{DoxyParams}{Parameters}
+{\em rhs} & \mbox{\hyperlink{class_connector}{Connector}} that will be copied based on which it is assigned. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+The current object after assignment has been complete. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_connector_a42c0c1f8a6b6d9065bff43d2d86af3d2}\label{class_connector_a42c0c1f8a6b6d9065bff43d2d86af3d2}} 
+\index{Connector@{Connector}!query@{query}}
+\index{query@{query}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename... Args$>$ \\
+bool Connector\+::query (\begin{DoxyParamCaption}\item[{const char $\ast$}]{q,  }\item[{const Args $\ast$...}]{args }\end{DoxyParamCaption})}
+
+Processes given query to target database supporting multiple arguments. 
+\begin{DoxyParams}{Parameters}
+{\em q} & const char$\ast$ that stores the query to be executed. \\
+\hline
+{\em args} & Variadic Template (Parameter Pack) that houses the arguments needed to add to the query to be executed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See also}
+\mbox{\hyperlink{class_connector_a460549bf27423cfca87fd758f5885028}{Connector\+::query(const char$\ast$ query)}} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+If query has successfully been executed or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_connector_a460549bf27423cfca87fd758f5885028}\label{class_connector_a460549bf27423cfca87fd758f5885028}} 
+\index{Connector@{Connector}!query@{query}}
+\index{query@{query}!Connector@{Connector}}
+\doxysubsubsection{\texorpdfstring{query()}{query()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool Connector\+::query (\begin{DoxyParamCaption}\item[{const char $\ast$}]{query }\end{DoxyParamCaption})}
+
+Used to execute a query on a target database 
+\begin{DoxyParams}{Parameters}
+{\em query} & stores query in a const char$\ast$ to be executed on target database. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+If query was successfully executed or not. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{connector_8h}{connector.\+h}}\item 
+\mbox{\hyperlink{connector_8cpp}{connector.\+cpp}}\end{DoxyCompactItemize}
