@@ -1,0 +1,135 @@
+\hypertarget{connector_8c}{}\doxysection{connector.\+c File Reference}
+\label{connector_8c}\index{connector.c@{connector.c}}
+{\ttfamily \#include \char`\"{}connector.\+h\char`\"{}}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+size\+\_\+t \mbox{\hyperlink{connector_8c_a0ec760d5a2fb440f306cd1dca9b74549}{Connector\+\_\+get\+Str\+Size}} (const char $\ast$str)
+\item 
+bool \mbox{\hyperlink{connector_8c_a490f7d7a466c83977999fcd8342c7c1f}{Connector\+\_\+init}} (\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$m, M\+Y\+S\+QL $\ast$con)
+\begin{DoxyCompactList}\small\item\em Initializes Connector structure. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{connector_8c_a406852bade8f103235b74b0e7129d5c0}{Connector\+\_\+connect}} (\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$m, const char $\ast$host, const char $\ast$user, const char $\ast$pass, const char $\ast$db, unsigned port, const char $\ast$unix\+\_\+port, unsigned long client\+\_\+flags)
+\begin{DoxyCompactList}\small\item\em Connects to target My\+S\+QL database. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{connector_8c_a76978525aee053be29ca733cc3ac5d0b}{Connector\+\_\+query}} (\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$m, const char $\ast$query)
+\begin{DoxyCompactList}\small\item\em Executes a query. \end{DoxyCompactList}\item 
+M\+Y\+S\+Q\+L\+\_\+\+R\+OW \mbox{\hyperlink{connector_8c_ae01230942eecbb8de74ae9319f05f278}{Connector\+\_\+next}} (\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Checks for rows left. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{connector_8c_a77ef0f3ec5688a7646f6c9c54e229e97}{Connector\+\_\+destroy}} (\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$m)
+\begin{DoxyCompactList}\small\item\em Frees up all resources. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{connector_8c_a406852bade8f103235b74b0e7129d5c0}\label{connector_8c_a406852bade8f103235b74b0e7129d5c0}} 
+\index{connector.c@{connector.c}!Connector\_connect@{Connector\_connect}}
+\index{Connector\_connect@{Connector\_connect}!connector.c@{connector.c}}
+\doxysubsubsection{\texorpdfstring{Connector\_connect()}{Connector\_connect()}}
+{\footnotesize\ttfamily bool Connector\+\_\+connect (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$}]{m,  }\item[{const char $\ast$}]{host,  }\item[{const char $\ast$}]{user,  }\item[{const char $\ast$}]{pass,  }\item[{const char $\ast$}]{db,  }\item[{unsigned}]{port,  }\item[{const char $\ast$}]{unix\+\_\+socket,  }\item[{unsigned long}]{client\+\_\+flag }\end{DoxyParamCaption})}
+
+
+
+Connects to target My\+S\+QL database. 
+
+Use this function to connect the Connector to a target database. 
+\begin{DoxyParams}{Parameters}
+{\em m} & Connector this function belongs to. \\
+\hline
+{\em host} & Target location of My\+S\+QL database. \\
+\hline
+{\em user} & My\+S\+QL user name. \\
+\hline
+{\em pass} & My\+S\+QL password. \\
+\hline
+{\em db} & Target database/schema to connect to. \\
+\hline
+{\em port} & Port number that target My\+S\+QL database uses. \\
+\hline
+{\em unix\+\_\+socket} & Unix Socket that can be used to connect to target My\+S\+QL database. \\
+\hline
+{\em client\+\_\+flag} & Flag to tell My\+S\+QL what features you need to do what you need to do. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Connector successfully connected to target or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{connector_8c_a77ef0f3ec5688a7646f6c9c54e229e97}\label{connector_8c_a77ef0f3ec5688a7646f6c9c54e229e97}} 
+\index{connector.c@{connector.c}!Connector\_destroy@{Connector\_destroy}}
+\index{Connector\_destroy@{Connector\_destroy}!connector.c@{connector.c}}
+\doxysubsubsection{\texorpdfstring{Connector\_destroy()}{Connector\_destroy()}}
+{\footnotesize\ttfamily void Connector\+\_\+destroy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+Frees up all resources. 
+
+Use this function when finished using the connector. This function will properly free all resources from inside the Connector. 
+\begin{DoxyParams}{Parameters}
+{\em m} & Connector this function belongs to. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{connector_8c_a0ec760d5a2fb440f306cd1dca9b74549}\label{connector_8c_a0ec760d5a2fb440f306cd1dca9b74549}} 
+\index{connector.c@{connector.c}!Connector\_getStrSize@{Connector\_getStrSize}}
+\index{Connector\_getStrSize@{Connector\_getStrSize}!connector.c@{connector.c}}
+\doxysubsubsection{\texorpdfstring{Connector\_getStrSize()}{Connector\_getStrSize()}}
+{\footnotesize\ttfamily size\+\_\+t Connector\+\_\+get\+Str\+Size (\begin{DoxyParamCaption}\item[{const char $\ast$}]{str }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{connector_8c_a490f7d7a466c83977999fcd8342c7c1f}\label{connector_8c_a490f7d7a466c83977999fcd8342c7c1f}} 
+\index{connector.c@{connector.c}!Connector\_init@{Connector\_init}}
+\index{Connector\_init@{Connector\_init}!connector.c@{connector.c}}
+\doxysubsubsection{\texorpdfstring{Connector\_init()}{Connector\_init()}}
+{\footnotesize\ttfamily bool Connector\+\_\+init (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$}]{m,  }\item[{M\+Y\+S\+QL $\ast$}]{con }\end{DoxyParamCaption})}
+
+
+
+Initializes Connector structure. 
+
+Use this function to properly initialize the Connector. 
+\begin{DoxyParams}{Parameters}
+{\em m} & Connector this function belongs to. \\
+\hline
+{\em con} & M\+Y\+S\+QL main structure to be used for initialization. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Connector is successfully initialized or not. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{connector_8c_ae01230942eecbb8de74ae9319f05f278}\label{connector_8c_ae01230942eecbb8de74ae9319f05f278}} 
+\index{connector.c@{connector.c}!Connector\_next@{Connector\_next}}
+\index{Connector\_next@{Connector\_next}!connector.c@{connector.c}}
+\doxysubsubsection{\texorpdfstring{Connector\_next()}{Connector\_next()}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+R\+OW Connector\+\_\+next (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$}]{m }\end{DoxyParamCaption})}
+
+
+
+Checks for rows left. 
+
+Use this function if you need to check if there are more rows to be processed. 
+\begin{DoxyParams}{Parameters}
+{\em m} & Connector this function belongs to. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A M\+Y\+S\+Q\+L\+\_\+\+R\+OW structure for the next row, or N\+U\+LL. 
+\end{DoxyReturn}
+\begin{DoxySeeAlso}{See also}
+\href{https://dev.mysql.com/doc/refman/5.7/en/mysql-fetch-row.html}{\texttt{ https\+://dev.\+mysql.\+com/doc/refman/5.\+7/en/mysql-\/fetch-\/row.\+html}} 
+\end{DoxySeeAlso}
+\mbox{\Hypertarget{connector_8c_a76978525aee053be29ca733cc3ac5d0b}\label{connector_8c_a76978525aee053be29ca733cc3ac5d0b}} 
+\index{connector.c@{connector.c}!Connector\_query@{Connector\_query}}
+\index{Connector\_query@{Connector\_query}!connector.c@{connector.c}}
+\doxysubsubsection{\texorpdfstring{Connector\_query()}{Connector\_query()}}
+{\footnotesize\ttfamily bool Connector\+\_\+query (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{connector_8h_a8d38888bc1e28fc1eaa74cba81051c55}{Connector}} $\ast$}]{m,  }\item[{const char $\ast$}]{query }\end{DoxyParamCaption})}
+
+
+
+Executes a query. 
+
+Use this function to execute queries on the target database. 
+\begin{DoxyParams}{Parameters}
+{\em m} & Connector this function belongs to. \\
+\hline
+{\em query} & Query to be executed. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Query was successfully executed or not. 
+\end{DoxyReturn}

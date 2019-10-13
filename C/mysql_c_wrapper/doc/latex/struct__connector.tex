@@ -1,0 +1,107 @@
+\hypertarget{struct__connector}{}\doxysection{\+\_\+connector Struct Reference}
+\label{struct__connector}\index{\_connector@{\_connector}}
+
+
+Connector base structure.  
+
+
+
+
+{\ttfamily \#include $<$connector.\+h$>$}
+
+\doxysubsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+M\+Y\+S\+QL $\ast$ \mbox{\hyperlink{struct__connector_a72aea068da18061cc84b100036270682}{con}}
+\item 
+M\+Y\+S\+Q\+L\+\_\+\+R\+ES $\ast$ \mbox{\hyperlink{struct__connector_ae6eacc70ad3579c30ba5fb478a363de6}{result}}
+\item 
+M\+Y\+S\+Q\+L\+\_\+\+R\+OW \mbox{\hyperlink{struct__connector_a34269e7c6df16f7d1b6034b9fce28463}{row}}
+\item 
+M\+Y\+S\+Q\+L\+\_\+\+F\+I\+E\+LD $\ast$ \mbox{\hyperlink{struct__connector_a37d24f00a2791852c5c2e3d0acf3845e}{field}}
+\item 
+unsigned \mbox{\hyperlink{struct__connector_a4c772f3cf58e986ee1450ef3e73e56f2}{num\+\_\+fields}}
+\item 
+my\+\_\+ulonglong \mbox{\hyperlink{struct__connector_a161d172255fb2cc9f5af131a8ffd6a6b}{num\+\_\+affected\+\_\+rows}}
+\item 
+char $\ast$ \mbox{\hyperlink{struct__connector_a37a27b523e8aff433c8a4adda2295f0d}{error}}
+\item 
+bool \mbox{\hyperlink{struct__connector_a5e7656006c54c5a38ba22f9fd0bcb2f1}{has\+Error}}
+\item 
+bool \mbox{\hyperlink{struct__connector_a4f8bcd90de29e1f2200ce1f223533d9a}{lib\+\_\+initialized}}
+\item 
+bool \mbox{\hyperlink{struct__connector_a0570dba5e68578a70664a7fa555ddb81}{definition\+Statement}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Connector base structure. 
+
+A structure used to wrap around the My\+S\+QL C Connector. 
+
+\doxysubsection{Field Documentation}
+\mbox{\Hypertarget{struct__connector_a72aea068da18061cc84b100036270682}\label{struct__connector_a72aea068da18061cc84b100036270682}} 
+\index{\_connector@{\_connector}!con@{con}}
+\index{con@{con}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{con}{con}}
+{\footnotesize\ttfamily M\+Y\+S\+QL$\ast$ con}
+
+Main My\+S\+QL structure \mbox{\Hypertarget{struct__connector_a0570dba5e68578a70664a7fa555ddb81}\label{struct__connector_a0570dba5e68578a70664a7fa555ddb81}} 
+\index{\_connector@{\_connector}!definitionStatement@{definitionStatement}}
+\index{definitionStatement@{definitionStatement}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{definitionStatement}{definitionStatement}}
+{\footnotesize\ttfamily bool definition\+Statement}
+
+Stores if active query is a Definition Statement or not \mbox{\Hypertarget{struct__connector_a37a27b523e8aff433c8a4adda2295f0d}\label{struct__connector_a37a27b523e8aff433c8a4adda2295f0d}} 
+\index{\_connector@{\_connector}!error@{error}}
+\index{error@{error}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{error}{error}}
+{\footnotesize\ttfamily char$\ast$ error}
+
+Stores any error messages encountered \mbox{\Hypertarget{struct__connector_a37d24f00a2791852c5c2e3d0acf3845e}\label{struct__connector_a37d24f00a2791852c5c2e3d0acf3845e}} 
+\index{\_connector@{\_connector}!field@{field}}
+\index{field@{field}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{field}{field}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+F\+I\+E\+LD$\ast$ field}
+
+My\+S\+QL Field structure \mbox{\Hypertarget{struct__connector_a5e7656006c54c5a38ba22f9fd0bcb2f1}\label{struct__connector_a5e7656006c54c5a38ba22f9fd0bcb2f1}} 
+\index{\_connector@{\_connector}!hasError@{hasError}}
+\index{hasError@{hasError}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{hasError}{hasError}}
+{\footnotesize\ttfamily bool has\+Error}
+
+Stores Connector error state \mbox{\Hypertarget{struct__connector_a4f8bcd90de29e1f2200ce1f223533d9a}\label{struct__connector_a4f8bcd90de29e1f2200ce1f223533d9a}} 
+\index{\_connector@{\_connector}!lib\_initialized@{lib\_initialized}}
+\index{lib\_initialized@{lib\_initialized}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{lib\_initialized}{lib\_initialized}}
+{\footnotesize\ttfamily bool lib\+\_\+initialized}
+
+Stores if mysql\+\_\+client\+\_\+lib has been initialized or not \mbox{\Hypertarget{struct__connector_a161d172255fb2cc9f5af131a8ffd6a6b}\label{struct__connector_a161d172255fb2cc9f5af131a8ffd6a6b}} 
+\index{\_connector@{\_connector}!num\_affected\_rows@{num\_affected\_rows}}
+\index{num\_affected\_rows@{num\_affected\_rows}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{num\_affected\_rows}{num\_affected\_rows}}
+{\footnotesize\ttfamily my\+\_\+ulonglong num\+\_\+affected\+\_\+rows}
+
+Stores number of affected rows \mbox{\Hypertarget{struct__connector_a4c772f3cf58e986ee1450ef3e73e56f2}\label{struct__connector_a4c772f3cf58e986ee1450ef3e73e56f2}} 
+\index{\_connector@{\_connector}!num\_fields@{num\_fields}}
+\index{num\_fields@{num\_fields}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{num\_fields}{num\_fields}}
+{\footnotesize\ttfamily unsigned num\+\_\+fields}
+
+Stores number of field names \mbox{\Hypertarget{struct__connector_ae6eacc70ad3579c30ba5fb478a363de6}\label{struct__connector_ae6eacc70ad3579c30ba5fb478a363de6}} 
+\index{\_connector@{\_connector}!result@{result}}
+\index{result@{result}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{result}{result}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+R\+ES$\ast$ result}
+
+My\+S\+QL results structure \mbox{\Hypertarget{struct__connector_a34269e7c6df16f7d1b6034b9fce28463}\label{struct__connector_a34269e7c6df16f7d1b6034b9fce28463}} 
+\index{\_connector@{\_connector}!row@{row}}
+\index{row@{row}!\_connector@{\_connector}}
+\doxysubsubsection{\texorpdfstring{row}{row}}
+{\footnotesize\ttfamily M\+Y\+S\+Q\+L\+\_\+\+R\+OW row}
+
+My\+S\+QL Row structure 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{connector_8h}{connector.\+h}}\end{DoxyCompactItemize}
