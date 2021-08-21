@@ -1,5 +1,6 @@
 This is a library that is a current work in process. The purpose of sfml_tilemapper is to parse TMX and TSX files to be able to correctly provide information to be
 able to draw TMX files as intended. The library is completely dependent depending on the current version of Tiled being used.
+
 https://www.mapeditor.org/ - Tiled
 
 Some of the intended features of this library includes the ability to be able to correctly deduce which ever encryption is used when TMX files is wrote and still be
@@ -12,6 +13,7 @@ I also realize that the base of the library could be designed MUCH better. I do 
 and for simplicity of use as wel).
 
 The following libraries are utilized in this library:
+
 https://pugixml.org/ - PugiXML Library
 
 (If the base64.h file does not state information on it's original creator, bare with me. IIRC, I was troubleshooting and for some reason I removed the header and planned to
@@ -20,6 +22,7 @@ in theft of code. I will give credit where credit is due.)
 
 Even though this is labeled to be used with SFML, there are no SFML libraries utilized. It is just the main library that I Was using when I began thinking about the creation
 of this library. Regardless, here is the link to SFML:
+
 https://www.sfml-dev.org/ - SFML Library
 
 This library is also inspired by another library provided in the link below. If you look through the comments with in the code, there is even code pulled from the library and
