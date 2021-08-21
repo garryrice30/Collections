@@ -38,6 +38,9 @@ files from newer versions. Please keep this in mind.
 This file will be edited as progress moves forward in developing this library. I will keep the parts that are currently in progress at the bottom of this README.
 
 In Progress:
+
 Correctly parsing tile ids encrypted using ZSTD.
+
 Correctly parsing tile ids encrypted using CSV.
+
 Redesign library interface for better simplicity and reduce redundancy.
