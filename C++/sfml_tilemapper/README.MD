@@ -15,7 +15,9 @@ and for simplicity of use as wel).
 The following libraries are utilized in this library:
 
 https://pugixml.org/ - PugiXML Library
+
 https://zlib.net/ - ZLib Library
+
 https://github.com/facebook/zstd - ZStd Library
 
 (If the base64.h file does not state information on it's original creator, bare with me. IIRC, I was troubleshooting and for some reason I removed the header and planned to
