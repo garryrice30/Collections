@@ -26,6 +26,7 @@ This library is also inspired by another library provided in the link below. If 
 respectfully credited inside the comments. IIRC, I know for sure the bit shifting used to see if the tile is rotated is one of the things borrowed. This was due to bit shifting
 still being a new concept to me at the time. Even if I redesign my own way to do so, I will always credit this library for teaching me the concept of detecting if tiles have 
 been rotated or not:
+
 https://github.com/fallahn/tmxlite
 
 At the current time of creating the README, the version of Tiled that the library is being created for is 1.7.1. I can not garantee if this library will correctly parse TMX
