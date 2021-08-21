@@ -1,3 +1,11 @@
+/*
+  This header file was borrowed from the following site (This comment is simply here for credit. 
+  Original comment header will be added once found:
+  
+  https://stackoverflow.com/questions/342409/how-do-i-base64-encode-decode-in-c
+  
+*/
+
 #ifndef BASE64_HPP
 #define BASE64_HPP
 
