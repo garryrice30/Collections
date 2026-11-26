@@ -5,18 +5,55 @@
  * @brief MySQL C Wrapper driver test file.
  *
  * This is the driver file to demonstrate/test how MySQL C Wrapper works.
+ * Point it at your own server, user, password and database before running it.
  */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "connector.h"
 
-/*
- **************Note***********
- * I'm sure in C there's some macro fun I could do to make things easier,
- * but I'm trying to keep the code as friendly as possible. Check notes
- * through out to see the hardships I had.
+/**
+ * Prints one row of a result set.
+ * @param row Row handed over by Connector_call_rows.
+ * @param num_fields Number of fields in that row.
+ * @param user Optional label printed in front of the row.
+ * @return Always true, so the call keeps reading.
  */
+static bool print_row(MYSQL_ROW row, unsigned num_fields, void* user)
+{
+    const char* label = (const char*)user;
+    if(label != NULL)
+    {
+        printf("%s: ", label);
+    }
+    for(unsigned i = 0; i < num_fields; i++)
+    {
+        printf("%s | ", row[i] ? row[i] : "NULL");
+    }
+    puts("");
+    return true;
+}
+
+/**
+ * Prints the field names and every row of the result set the Connector holds.
+ * @param m Connector this function belongs to.
+ */
+static void print_table(Connector* m)
+{
+    //Traverse fields to retrieve field names.
+    for(unsigned i = 0; i < m->num_fields; i++)
+    {
+        printf("%s | ", m->field[i].name);
+    }
+    //Here to reduce clutter.
+    puts("");
+
+    //Use MYSQL_ROW struct to use mysql_fetch_row to traverse the rows for data.
+    while(Connector_next(m) != NULL)
+    {
+        print_row(m->row, m->num_fields, NULL);
+    }
+}
 
 int main(void)
 {
@@ -25,75 +62,70 @@ int main(void)
     //Check if it initializes.
     if(!Connector_init(&m,NULL))
     {
-        //Reporting error via stdout.
         printf("Error: %s\n",m.error);
+        return 1;
+    }
+
+    //Check if it connects to target.
+    if(!Connector_connect(&m,"localhost","root","test","testdb",3306,NULL,0))
+    {
+        printf("Error: %s\n",m.error);
+        Connector_destroy(&m);
+        return 1;
+    }
+
+    //A plain query, written out by hand.
+    if(Connector_query(&m,"select * from Cars"))
+    {
+        print_table(&m);
     }
     else
     {
-        //Check if it connects to target.
-        if(!Connector_connect(&m,"localhost","root","test","testdb",3306,0,0))
-        {
-            //Reporting error via stdout.
-            printf("Error: %s\n",m.error);
-        }
-        else
-        {
-            //Check if query executes.
-            if(!Connector_query(&m,"select * from Cars"))
-            {
-                //Reporting error via stdout.
-                printf("Error: %s\n",m.error);
-            }
-            else
-            {
-                //Traverse fields to retrieve field names.
-                for(int i = 0; i < m.num_fields; i++)
-                {
-                    //Print names found.
-                    printf("%s | ",m.field[i].name);
-                }
-                //Here to reduce clutter.
-                puts("");
-
-                /*
-                 *********Note**********
-                 * This was the biggest portion I had trouble with.
-                 * I tried my best to store the data in something like
-                 * a void* so data can be converted when needed.
-                 * I finally punted and left it up to the end user
-                 * to use some MySQL Connector C functionality to retrieve
-                 * their data. Good news is, that leaves more flexibility and
-                 * it's easier on me. Bad news, it's SLOPPY!
-                 * Maybe I'll figure something else out in the future.
-                 */
-
-                 //Use MYSQL_ROW struct to use mysql_fetch_row to traverse
-                 //the rows for data.
-                while((m.row = mysql_fetch_row(m.result)))
-                {
-                    //Use a for loop, linked with the number of fields
-                    //(AKA column count).
-                    for(size_t i = 0; i < m.num_fields; i++)
-                    {
-                        //If the row is NULL, only print NULL.
-                        if(m.row[i] == NULL)
-                        {
-                            printf("NULL | ");
-                        }
-                        //Otherwise, print the data to stdout.
-                        else
-                        {
-                            printf("%s | ", m.row[i]);
-                        }
-                    }
-                    //Clearing out the clutter.
-                    puts("");
-                }
-                //Freeing up resources.
-                Connector_destroy(&m);
-            }
-        }
+        printf("Error: %s\n",m.error);
     }
+
+    //The same query, with the values passed as arguments. The string is
+    //quoted and escaped for us, so a name containing a quote cannot break it.
+    if(Connector_queryf(&m,"select * from Cars where make = %s and year > %d","Ford",2000))
+    {
+        print_table(&m);
+    }
+    else
+    {
+        printf("Error: %s\n",m.error);
+    }
+
+    //Stored procedure. Every row of every result set goes to print_row, which
+    //is what makes a procedure that returns several result sets usable.
+    if(Connector_call_rows(&m,"cars_by_make","'Ford'",print_row,(void*)"cars_by_make"))
+    {
+        printf("Result sets: %u\n",m.num_result_sets);
+    }
+    else
+    {
+        printf("Error: %s\n",m.error);
+    }
+
+    //Stored procedure without a callback: the rows are read and thrown away,
+    //which still leaves the connection ready for the next statement.
+    if(!Connector_call(&m,"cars_by_make","'Ford'"))
+    {
+        printf("Error: %s\n",m.error);
+    }
+
+    //Stored function. The single value it returns lands in m.scalar.
+    if(Connector_call_function(&m,"count_cars",NULL))
+    {
+        printf("count_cars() = %s\n",m.scalar_is_null ? "NULL" : m.scalar);
+    }
+    else
+    {
+        printf("Error: %s\n",m.error);
+    }
+
+    //Freeing up resources.
+    Connector_destroy(&m);
+
     //End of Program
     return 0;
 }

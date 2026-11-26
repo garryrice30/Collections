@@ -1,17 +1,40 @@
 MySQL C Wrapper
 
 This is a C Project that simply wraps around Oracles's MySQL C Connector. There's really not much to it that's too terribly complicated.
-It has the ability to do basic queries (Select, Show, Create, Insert, ect). Here are some things I plan on adding to it in the future:
-1. I plan on having a query function that will take arguments, much like printf(). It's not that I can't do it, I just chose not to
-implement it right now.
-2. Sooner or later, functionality will be added for stored procedures and stored functions. I wouldn't count on any time soon.
-3. I'm very sure it needs to be optimized. This is verion 1.0.0, so it wouldn't suprise me one bit.
+It has the ability to do basic queries (Select, Show, Create, Insert, ect).
+
+Queries that take values can be written with Connector_queryf(), which works like printf() and quotes the values for you:
+
+	Connector_queryf(&m, "select * from Cars where make = %s and year > %d", "Ford", 2000);
+
+%s is a string and becomes a quoted, escaped literal (a NULL pointer becomes NULL), %d / %i / %ld / %lld are signed integers,
+%u / %lu / %llu are unsigned integers, %f is a double and %% is a literal percent sign. Any other specifier is rejected and reported
+through hasError, instead of quietly building a broken statement.
+
+Stored procedures and stored functions are supported as well:
+
+	Connector_call(&m, "cars_by_make", "'Ford'");                        // CALL, reads every result set
+	Connector_call_rows(&m, "cars_by_make", "'Ford'", print_row, NULL);  // same, but hands each row to a callback
+	Connector_call_function(&m, "count_cars", NULL);                     // SELECT, value lands in m.scalar
+
+A stored procedure can return more than one result set, and MySQL will not accept the next statement until all of them have been
+read. Connector_call() and Connector_call_rows() read every one of them, so the connection stays usable afterwards. The arguments
+string is the argument list exactly as you would write it in SQL, so build it with Connector_queryf() style quoting if the values
+come from elsewhere.
+
+Here are some things I plan on adding to it in the future:
+
+1. I'm very sure it needs to be optimized. This is verion
+1.0.0, so it wouldn't suprise me one bit.
 
 That's all that really comes to mind at the moment. I'd love to talk about it more, but there's just not much to it. It's just a simple
 MySQL C Wrapper.
 
-Feel free to use this as you see fit, I hope you find it useful. Keep in mind the warnings in the README.MD at the root of the repository.
+To build it, compile connector.c, connector_queryf.c and connector_call.c together with your own source file, for example:
 
+	gcc -o demo main.c connector.c connector_queryf.c connector_call.c -lmysqlclient
+
+Feel free to use this as you see fit, I hope you find it useful. Keep in mind the warnings in the README.MD at the root of the repository.
 This project utilizes Oracle's MySQL C Connector. Therefore, this project respectfully adheres to Oracles open source license:
 https://dev.mysql.com/doc/connector-c/en/preface.html
 
@@ -19,7 +42,6 @@ Here is some detailed information about the library I used to build this project
 (copied straight from mysql_version.h)
 
 /* Version numbers for protocol & mysqld */
-
 #define PROTOCOL_VERSION            10
 #define MYSQL_SERVER_VERSION       "5.7.12"
 #define MYSQL_BASE_VERSION         "mysqld-5.7"
