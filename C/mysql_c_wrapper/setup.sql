@@ -80,8 +80,8 @@ END$$
 
 DELIMITER ;
 
--- Sanity check: with the rows above this prints 8, then the two Ford rows and
--- a matching_cars count of 3, then total_cars 8.
+-- Sanity check: with the rows above this prints 8, then the three Ford rows
+-- with a matching_cars count of 3, then total_cars 8.
 SELECT COUNT(*) AS cars FROM Cars;
 CALL cars_by_make('Ford');
 SELECT count_cars() AS total_cars;
